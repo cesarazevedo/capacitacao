@@ -23,14 +23,8 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
-    --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
-    --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
-  }
-}
 :root[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
   --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
   --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
@@ -45,6 +39,7 @@ a{color:inherit}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px}
+.theme{margin-left:auto;flex:none;white-space:nowrap;font:600 14px var(--body);padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 nav a{white-space:nowrap;text-decoration:none;font-weight:600;font-size:15px;padding:6px 12px;border-radius:99px;color:var(--muted)}
 nav a:hover,nav a:focus-visible{background:var(--mint);color:var(--ink);outline:none}
 
@@ -204,6 +199,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   section{break-inside:avoid-page}
 }
 </style>
+<script>try{if(localStorage.getItem("tema")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </head>
 <body>
 
@@ -218,6 +214,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     <a href="#passos">Passo a passo</a>
     <a href="#documentos">Documentos</a>
     <a href="#cuidados">Cuidados</a>
+    <button class="theme noprint" type="button" id="tema" aria-label="Alternar entre modo claro e escuro">🌙 Modo escuro</button>
   </div>
 </nav>
 
@@ -606,6 +603,17 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     a.href = URL.createObjectURL(blob); a.download = 'prazos-licenca-capacitacao.ics';
     document.body.appendChild(a); a.click(); a.remove();
   });
+
+  // Modo claro (padrão) e escuro (se a pessoa escolher)
+  var tema = document.getElementById('tema'), raiz = document.documentElement;
+  function rotulo(){ tema.textContent = raiz.getAttribute('data-theme') === 'dark' ? '☀️ Modo claro' : '🌙 Modo escuro'; }
+  tema.addEventListener('click',function(){
+    var escuro = raiz.getAttribute('data-theme') !== 'dark';
+    if(escuro) raiz.setAttribute('data-theme','dark'); else raiz.removeAttribute('data-theme');
+    try{ localStorage.setItem('tema', escuro ? 'dark' : 'light'); }catch(e){}
+    rotulo();
+  });
+  rotulo();
 
   // Ao imprimir, abre as caixinhas fechadas
   window.addEventListener('beforeprint',function(){ document.querySelectorAll('details').forEach(function(d){ d.open = true; }); });
