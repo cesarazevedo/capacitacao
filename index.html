@@ -57,7 +57,7 @@ section h2{font-size:clamp(26px,5vw,34px);font-weight:800;margin-bottom:8px}
 .sub{color:var(--muted);margin:0 0 24px;max-width:60ch}
 
 /* quick facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
 .fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
 .fact b{display:block;font-family:var(--head);font-size:30px;color:var(--pine);line-height:1.1}
 .fact span{color:var(--muted);font-size:16px}
@@ -123,12 +123,46 @@ details ul{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:16.5px
 footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.progress i{transition:none}}
+
+/* infográficos */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px}
+.flow li{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 12px 14px;text-align:center;position:relative}
+.flow li .n{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:var(--pine);color:var(--pine-ink);font-family:var(--head);font-weight:800;font-size:14px;display:grid;place-items:center}
+.flow li.key{border:2px solid var(--amber)}
+.flow .ic{font-size:34px;display:block;line-height:1.2}
+.flow b{font-family:var(--head);font-size:18px;display:block;margin:4px 0 2px}
+.flow small{color:var(--muted);font-size:14.5px;line-height:1.3;display:block}
+.ic-big{font-size:26px;line-height:1;display:block;margin-bottom:6px}
+.fact .ic-big{margin-bottom:8px;font-size:28px;color:inherit}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;margin:18px 0}
+.fig h3{font-size:19px;margin-bottom:4px}
+.fig p{margin:0 0 12px;color:var(--muted);font-size:16px}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:4px}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--amber);box-shadow:0 0 0 2px var(--amber-soft)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:15px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px;background:var(--c,var(--line))}
+.bar{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px}
+.bar div{display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;min-width:0;background:var(--c,var(--pine))}
+.bar .gap{background:repeating-linear-gradient(45deg,var(--line) 0 6px,transparent 6px 12px);color:var(--muted)}
+.bar .amb{color:#2A1E00}
+.dates{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:6px}
+.weeks{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}
+.weeks i{width:26px;height:26px;border-radius:7px;background:var(--pine);opacity:.9}
+.weeks i.half{background:linear-gradient(90deg,var(--pine) var(--p,50%),var(--line) var(--p,50%))}
+.cap{font-size:15px;color:var(--muted);margin:8px 0 0}
+.warn{display:none;margin-top:14px;background:var(--amber-soft);border-left:6px solid var(--amber);border-radius:10px;padding:10px 14px;font-size:16px}
+.warn.show{display:block}
+.alert{display:flex;gap:14px;align-items:flex-start}
+.alert .ic{font-size:28px;line-height:1.1;flex:none}
+.rule h3 .ic{margin-right:6px}
 </style>
 </head>
 <body>
 
 <nav aria-label="Seções">
   <div class="wrap">
+    <a href="#jornada">Jornada</a>
     <a href="#resumo">Resumo</a>
     <a href="#datas">Datas</a>
     <a href="#regras">Regras</a>
@@ -153,21 +187,54 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 
 <main class="wrap">
 
+<section id="jornada">
+  <h2>O caminho todo, em 6 passos</h2>
+  <p class="sub">Do pedido até a volta ao trabalho. O passo em destaque é o que precisa de atenção primeiro.</p>
+  <ol class="flow">
+    <li class="key"><span class="n">1</span><span class="ic">📝</span><b>Inscrição</b><small>No SUAP, até 13/11</small></li>
+    <li><span class="n">2</span><span class="ic">🏆</span><b>Resultado</b><small>Final até 20/11, por e-mail</small></li>
+    <li><span class="n">3</span><span class="ic">📂</span><b>Processo</b><small>Abra no SUAP com os documentos</small></li>
+    <li><span class="n">4</span><span class="ic">✍️</span><b>Portaria</b><small>Decisão em até 30 dias</small></li>
+    <li><span class="n">5</span><span class="ic">🎓</span><b>Licença</b><small>Entre 01/01 e 30/06/2027</small></li>
+    <li><span class="n">6</span><span class="ic">📄</span><b>Comprovação</b><small>Até 30 dias depois de voltar</small></li>
+  </ol>
+</section>
+
 <section id="resumo">
   <h2>Em resumo</h2>
   <p class="sub">A licença é como uma “pausa para estudar” no trabalho: você continua recebendo, mas precisa mostrar que usou o tempo para aprender.</p>
   <div class="facts">
-    <div class="fact"><b>90 dias</b><span>de afastamento, com salário</span></div>
-    <div class="fact"><b>5 anos</b><span>de serviço para ganhar cada direito</span></div>
-    <div class="fact"><b>30 h/semana</b><span>de estudo mínimo comprovado</span></div>
-    <div class="fact"><b>5%</b><span>dos servidores podem sair ao mesmo tempo</span></div>
+    <div class="fact"><span class="ic-big">🏖️</span><b>90 dias</b><span>de afastamento, com salário</span></div>
+    <div class="fact"><span class="ic-big">📅</span><b>5 anos</b><span>de serviço para ganhar cada direito</span></div>
+    <div class="fact"><span class="ic-big">📖</span><b>30 h/semana</b><span>de estudo mínimo comprovado</span></div>
+    <div class="fact"><span class="ic-big">👥</span><b>5%</b><span>dos servidores podem sair ao mesmo tempo</span></div>
   </div>
+
+  <div class="fig">
+    <h3>Os 5%, em desenho</h3>
+    <p>Imagine 100 servidores. Só 5 podem estar de licença ao mesmo tempo.</p>
+    <div class="dots" id="dots" role="img" aria-label="100 bolinhas, 5 destacadas: representam os 5% de servidores que podem sair ao mesmo tempo"></div>
+    <div class="legend"><span style="--c:var(--amber)">Podem sair (5)</span><span>Continuam trabalhando (95)</span></div>
+  </div>
+
   <div class="analogy"><strong>Analogia:</strong> pense em um ônibus com poucos lugares. O edital só decide quem entra na lista (os 5%). Depois, o chefe e o diretor ainda precisam “assinar a passagem”. Estar na lista não garante a viagem.</div>
 </section>
 
 <section id="datas">
   <h2>Datas importantes</h2>
   <p class="sub">Anote tudo. Os prazos de recurso e desistência são curtos (só até as 16h).</p>
+  <div class="fig">
+    <h3>As 4 semanas decisivas</h3>
+    <p>De 28/10 a 20/11, cada pedacinho da barra é um dia.</p>
+    <div class="bar" role="img" aria-label="Inscrições de 28/10 a 13/11, fim de semana, resultado e recursos de 16 a 18/11, desistência e resultado final de 19 a 20/11">
+      <div style="flex:17;--c:var(--pine)">Inscrição</div>
+      <div class="gap" style="flex:2"></div>
+      <div class="amb" style="flex:3;--c:var(--amber)"></div>
+      <div style="flex:2;--c:var(--alert)"></div>
+    </div>
+    <div class="dates"><span>28/10</span><span>13/11</span><span>16/11</span><span>20/11</span></div>
+    <div class="legend"><span style="--c:var(--pine)">Inscrições no SUAP</span><span style="--c:var(--amber)">Resultado parcial e recurso</span><span style="--c:var(--alert)">Desistência e resultado final</span></div>
+  </div>
   <ol class="tl">
     <li><span class="d">27/10</span><span class="w">Edital publicado</span></li>
     <li class="key"><span class="d">28/10 (7h) a 13/11 (23h59)</span><span class="w">Inscrições no SUAP</span></li>
@@ -185,29 +252,36 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <p class="sub">O que pode e o que não pode, em linguagem simples.</p>
   <div class="rules">
     <div class="rule">
-      <h3>Para que serve</h3>
+      <h3><span class="ic">📚</span>Para que serve</h3>
       <p>Cursos presenciais ou a distância, escrever monografia, TCC, dissertação, tese ou pós-doutorado, curso de língua estrangeira e curso junto com prática em outro órgão ou trabalho voluntário.</p>
     </div>
     <div class="rule">
-      <h3>Precisa estar no PDP 2027</h3>
+      <h3><span class="ic">🎯</span>Precisa estar no PDP 2027</h3>
       <p>A capacitação tem que estar ligada a uma necessidade do Plano de Desenvolvimento de Pessoas (PDP) 2027 do IFRN. Você indica qual na inscrição e comprova depois.</p>
       <p>Ser aprovado no edital não resolve isso. Sem o alinhamento, a licença não sai.</p>
     </div>
     <div class="rule">
-      <h3>Pode dividir</h3>
+      <h3><span class="ic">✂️</span>Pode dividir</h3>
       <p>Até 6 períodos, cada um com no mínimo 15 dias, e com 60 dias de intervalo entre eles.</p>
-      <div class="ex"><b>Exemplo:</b> 3 períodos de 30 dias, com pelo menos 60 dias de trabalho entre um e outro.</div>
+      <div class="ex"><b>Exemplo:</b> 2 períodos de 45 dias, com pelo menos 60 dias de trabalho entre eles.
+        <div class="bar" style="margin-top:10px" role="img" aria-label="45 dias de licença, 60 dias trabalhando, 45 dias de licença">
+          <div style="flex:45">45 dias</div>
+          <div class="gap" style="flex:60">60 dias</div>
+          <div style="flex:45">45 dias</div>
+        </div>
+        <div class="legend"><span style="--c:var(--pine)">Licença</span><span>Trabalhando</span></div>
+      </div>
     </div>
     <div class="rule">
-      <h3>Mais de 30 dias seguidos</h3>
+      <h3><span class="ic">⏱️</span>Mais de 30 dias seguidos</h3>
       <p>Quem tem cargo de comissão ou função de confiança precisa pedir exoneração ou dispensa. Também perde gratificações e adicionais ligados ao local ou à atividade de trabalho.</p>
     </div>
     <div class="rule">
-      <h3>Não acumula</h3>
+      <h3><span class="ic">⌛</span>Não acumula</h3>
       <p>O direito aparece a cada 5 anos de serviço, e o uso deve começar até o fim dos 5 anos seguintes. Se deixar passar, perde.</p>
     </div>
     <div class="rule">
-      <h3>Sem substituto</h3>
+      <h3><span class="ic">🤝</span>Sem substituto</h3>
       <p>Não haverá professor ou técnico contratado para cobrir você. Por isso a chefia e o grupo precisam combinar a compensação antes.</p>
     </div>
   </div>
@@ -224,6 +298,9 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
       <div class="box"><b id="h-dia">4,3 h</b><span>por dia, contando fins de semana</span></div>
       <div class="box"><b id="h-sem">12,9</b><span>semanas de licença</span></div>
     </div>
+    <div class="weeks" id="weeks" aria-hidden="true"></div>
+    <p class="cap">Cada quadradinho é 1 semana de licença, com 30 h de estudo.</p>
+    <div class="warn" id="warn"><b>Mais de 30 dias seguidos.</b> Quem tem cargo de comissão ou função de confiança precisa pedir exoneração ou dispensa.</div>
     <p class="note">Fórmula do edital: carga horária total ÷ dias da licença × 7 deve ser maior ou igual a 30. O menor período possível é 15 dias. Resultado arredondado para cima.</p>
   </div>
   <div class="analogy"><strong>Exemplo:</strong> um curso de 200 h só cobre cerca de 46 dias de licença (200 × 7 ÷ 30 ≈ 46,7). Se você pedir 90 dias com esse curso, a conta não fecha.</div>
@@ -279,11 +356,11 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <h2>Cuidados importantes</h2>
   <p class="sub">Erros comuns que podem custar caro.</p>
   <div class="alerts">
-    <div class="alert"><b>Aprovado não é concedido</b><span>O resultado só confirma que há vaga dentro dos 5%. A licença só vale depois da portaria assinada pelo Reitor ou pelo Diretor-Geral.</span></div>
-    <div class="alert"><b>Não saia antes da portaria</b><span>Se atrasar, a licença começa na data da emissão do ato, desde que ainda dentro do período aprovado.</span></div>
-    <div class="alert"><b>Datas fechadas</b><span>Depois que as inscrições encerram, você não pode mudar início e fim. Depois da portaria, não pode trocar a ação de capacitação.</span></div>
-    <div class="alert"><b>Início e fim devem bater</b><span>A capacitação precisa começar no primeiro dia e terminar no último dia da licença. O certificado com datas diferentes da portaria pode gerar devolução do valor recebido.</span></div>
-    <div class="alert"><b>Desistir ou não concluir</b><span>Quem abandona a ação ou não entrega a comprovação precisa ressarcir os gastos do afastamento, inclusive a remuneração. Se terminar antes, deve voltar logo ao trabalho.</span></div>
+    <div class="alert"><span class="ic">⚠️</span><div><b>Aprovado não é concedido</b><span>O resultado só confirma que há vaga dentro dos 5%. A licença só vale depois da portaria assinada pelo Reitor ou pelo Diretor-Geral.</span></div></div>
+    <div class="alert"><span class="ic">🚫</span><div><b>Não saia antes da portaria</b><span>Se atrasar, a licença começa na data da emissão do ato, desde que ainda dentro do período aprovado.</span></div></div>
+    <div class="alert"><span class="ic">🔒</span><div><b>Datas fechadas</b><span>Depois que as inscrições encerram, você não pode mudar início e fim. Depois da portaria, não pode trocar a ação de capacitação.</span></div></div>
+    <div class="alert"><span class="ic">🔁</span><div><b>Início e fim devem bater</b><span>A capacitação precisa começar no primeiro dia e terminar no último dia da licença. O certificado com datas diferentes da portaria pode gerar devolução do valor recebido.</span></div></div>
+    <div class="alert"><span class="ic">💸</span><div><b>Desistir ou não concluir</b><span>Quem abandona a ação ou não entrega a comprovação precisa ressarcir os gastos do afastamento, inclusive a remuneração. Se terminar antes, deve voltar logo ao trabalho.</span></div></div>
   </div>
 </section>
 
@@ -327,7 +404,22 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     document.getElementById('h-dia').textContent = fmt(30/7,1) + ' h';
     document.getElementById('h-sem').textContent = fmt(d/7,1);
   }
+  var weeks = document.getElementById('weeks'), warn = document.getElementById('warn');
+  function draw(d){
+    var full = Math.floor(d/7), rest = d/7 - full, html = '';
+    for(var i=0;i<full;i++) html += '<i></i>';
+    if(rest > 0.001) html += '<i class="half" style="--p:'+Math.round(rest*100)+'%"></i>';
+    weeks.innerHTML = html;
+    warn.className = d > 30 ? 'warn show' : 'warn';
+  }
+  var oldCalc = calc;
+  calc = function(){ oldCalc(); draw(+r.value); };
   r.addEventListener('input',calc); calc();
+
+  // Bolinhas dos 5%
+  var dots = document.getElementById('dots'), dh = '';
+  for(var k=0;k<100;k++) dh += '<i'+(k<5?' class="on"':'')+'></i>';
+  dots.innerHTML = dh;
 
   // Checklist
   var boxes = document.querySelectorAll('#check input');
