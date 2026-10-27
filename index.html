@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia rápido: Licença para Capacitação IFRN 2027.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F8F6; --surface:#FFFFFF; --ink:#13201B; --muted:#53655E;
+  --pine:#0E4A3B; --pine-ink:#FFFFFF; --mint:#DDF0E7; --amber:#F2B33D; --amber-soft:#FFF1D1;
+  --alert:#A63A1F; --alert-soft:#FBE6DF; --line:#D5E2DB;
+  --head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
+    --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
+    --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
+  --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
+  --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
+}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px}
+nav a{white-space:nowrap;text-decoration:none;font-weight:600;font-size:15px;padding:6px 12px;border-radius:99px;color:var(--muted)}
+nav a:hover,nav a:focus-visible{background:var(--mint);color:var(--ink);outline:none}
+
+/* hero */
+.hero{background:var(--pine);color:var(--pine-ink);padding:44px 0 52px}
+.hero h1{font-size:clamp(34px,7vw,56px);font-weight:800;max-width:14ch}
+.hero p.lead{font-size:20px;max-width:46ch;margin:16px 0 28px;opacity:.92}
+.deadline{display:inline-flex;align-items:center;gap:18px;background:var(--amber);color:#2A1E00;border-radius:18px;padding:16px 22px;flex-wrap:wrap}
+.deadline .big{font-family:var(--head);font-weight:800;font-size:44px;line-height:1}
+.deadline .txt{font-weight:600;line-height:1.3}
+.deadline .txt small{display:block;font-weight:400;font-size:15px}
+.tag{display:inline-block;font-size:14px;font-weight:600;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:99px;margin-bottom:16px}
+
+section{padding:48px 0 8px}
+section h2{font-size:clamp(26px,5vw,34px);font-weight:800;margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:60ch}
+
+/* quick facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.fact b{display:block;font-family:var(--head);font-size:30px;color:var(--pine);line-height:1.1}
+.fact span{color:var(--muted);font-size:16px}
+
+/* analogy box */
+.analogy{background:var(--amber-soft);border-left:6px solid var(--amber);border-radius:12px;padding:14px 18px;margin:18px 0;font-size:17px}
+.analogy strong{font-family:var(--head)}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0 0 0 26px;border-left:3px solid var(--line)}
+.tl li{position:relative;padding:0 0 22px 18px}
+.tl li::before{content:"";position:absolute;left:-36px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:4px solid var(--pine)}
+.tl li.key::before{background:var(--amber);border-color:var(--amber);width:20px;height:20px;left:-38px;top:3px}
+.tl .d{font-family:var(--head);font-weight:800;font-size:20px;display:block}
+.tl .w{color:var(--muted);font-size:16px}
+.tl li.key .d{color:var(--pine)}
+
+/* rules */
+.rules{display:grid;gap:14px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.rule h3{font-size:21px;margin-bottom:6px}
+.rule p{margin:0;color:var(--muted)}
+.rule p+p{margin-top:8px}
+.rule .ex{margin-top:10px;background:var(--mint);border-radius:10px;padding:10px 14px;color:var(--ink);font-size:16.5px}
+
+/* calc */
+.calc{background:var(--surface);border:2px solid var(--pine);border-radius:20px;padding:22px}
+.calc label{font-weight:700;display:block;margin-bottom:8px}
+.calc input[type=range]{width:100%;accent-color:var(--pine)}
+.calc .out{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.calc .box{flex:1 1 160px;background:var(--mint);border-radius:14px;padding:14px}
+.calc .box b{display:block;font-family:var(--head);font-size:32px;color:var(--pine);line-height:1.1}
+.calc .box span{font-size:15px;color:var(--muted)}
+.calc .note{margin:14px 0 0;font-size:16px;color:var(--muted)}
+
+/* steps */
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 16px 64px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--pine);color:var(--pine-ink);font-family:var(--head);font-weight:800;display:grid;place-items:center}
+.steps li b{font-family:var(--head);font-size:19px;display:block}
+.steps li span{color:var(--muted);font-size:16.5px}
+.phase{font-family:var(--head);font-size:22px;font-weight:800;margin:28px 0 12px}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer}
+.check input{width:22px;height:22px;margin-top:3px;accent-color:var(--pine);flex:none}
+.check input:checked + span{text-decoration:line-through;color:var(--muted)}
+.check small{display:block;color:var(--muted);font-size:15px}
+.progress{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:0 0 16px}
+.progress i{display:block;height:100%;width:0;background:var(--pine);transition:width .25s}
+.pcount{font-weight:700;margin-bottom:6px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:14px}
+details summary{font-weight:700;cursor:pointer}
+details ul{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:16.5px}
+
+/* alerts */
+.alerts{display:grid;gap:12px}
+.alert{background:var(--alert-soft);border-left:6px solid var(--alert);border-radius:12px;padding:14px 18px}
+.alert b{font-family:var(--head);color:var(--alert);display:block;font-size:19px}
+.alert span{font-size:17px}
+
+footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.progress i{transition:none}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Seções">
+  <div class="wrap">
+    <a href="#resumo">Resumo</a>
+    <a href="#datas">Datas</a>
+    <a href="#regras">Regras</a>
+    <a href="#calculadora">Calculadora</a>
+    <a href="#passos">Passo a passo</a>
+    <a href="#documentos">Documentos</a>
+    <a href="#cuidados">Cuidados</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Edital nº 61/2026 · IFRN</span>
+    <h1>Licença para capacitação 2027.1</h1>
+    <p class="lead">Tudo que você precisa saber para pedir até 90 dias de afastamento remunerado para estudar, entre janeiro e junho de 2027.</p>
+    <div class="deadline" role="status">
+      <div class="big" id="dias">—</div>
+      <div class="txt"><span id="dias-txt">Carregando prazo…</span><small>Inscrições: 28/10 às 7h até 13/11/2026 às 23h59, só pelo SUAP</small></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="resumo">
+  <h2>Em resumo</h2>
+  <p class="sub">A licença é como uma “pausa para estudar” no trabalho: você continua recebendo, mas precisa mostrar que usou o tempo para aprender.</p>
+  <div class="facts">
+    <div class="fact"><b>90 dias</b><span>de afastamento, com salário</span></div>
+    <div class="fact"><b>5 anos</b><span>de serviço para ganhar cada direito</span></div>
+    <div class="fact"><b>30 h/semana</b><span>de estudo mínimo comprovado</span></div>
+    <div class="fact"><b>5%</b><span>dos servidores podem sair ao mesmo tempo</span></div>
+  </div>
+  <div class="analogy"><strong>Analogia:</strong> pense em um ônibus com poucos lugares. O edital só decide quem entra na lista (os 5%). Depois, o chefe e o diretor ainda precisam “assinar a passagem”. Estar na lista não garante a viagem.</div>
+</section>
+
+<section id="datas">
+  <h2>Datas importantes</h2>
+  <p class="sub">Anote tudo. Os prazos de recurso e desistência são curtos (só até as 16h).</p>
+  <ol class="tl">
+    <li><span class="d">27/10</span><span class="w">Edital publicado</span></li>
+    <li class="key"><span class="d">28/10 (7h) a 13/11 (23h59)</span><span class="w">Inscrições no SUAP</span></li>
+    <li><span class="d">16/11</span><span class="w">Resultado parcial</span></li>
+    <li><span class="d">17/11, das 7h às 16h</span><span class="w">Recurso contra o resultado parcial</span></li>
+    <li><span class="d">Até 18/11</span><span class="w">Resultado dos recursos</span></li>
+    <li><span class="d">19/11, das 7h às 16h</span><span class="w">Prazo para desistir (se foi aprovado)</span></li>
+    <li class="key"><span class="d">Até 20/11</span><span class="w">Resultado final, enviado por e-mail institucional</span></li>
+    <li><span class="d">01/01 a 30/06/2027</span><span class="w">Período em que a licença pode ser usada</span></li>
+  </ol>
+</section>
+
+<section id="regras">
+  <h2>Regras principais</h2>
+  <p class="sub">O que pode e o que não pode, em linguagem simples.</p>
+  <div class="rules">
+    <div class="rule">
+      <h3>Para que serve</h3>
+      <p>Cursos presenciais ou a distância, escrever monografia, TCC, dissertação, tese ou pós-doutorado, curso de língua estrangeira e curso junto com prática em outro órgão ou trabalho voluntário.</p>
+    </div>
+    <div class="rule">
+      <h3>Precisa estar no PDP 2027</h3>
+      <p>A capacitação tem que estar ligada a uma necessidade do Plano de Desenvolvimento de Pessoas (PDP) 2027 do IFRN. Você indica qual na inscrição e comprova depois.</p>
+      <p>Ser aprovado no edital não resolve isso. Sem o alinhamento, a licença não sai.</p>
+    </div>
+    <div class="rule">
+      <h3>Pode dividir</h3>
+      <p>Até 6 períodos, cada um com no mínimo 15 dias, e com 60 dias de intervalo entre eles.</p>
+      <div class="ex"><b>Exemplo:</b> 3 períodos de 30 dias, com pelo menos 60 dias de trabalho entre um e outro.</div>
+    </div>
+    <div class="rule">
+      <h3>Mais de 30 dias seguidos</h3>
+      <p>Quem tem cargo de comissão ou função de confiança precisa pedir exoneração ou dispensa. Também perde gratificações e adicionais ligados ao local ou à atividade de trabalho.</p>
+    </div>
+    <div class="rule">
+      <h3>Não acumula</h3>
+      <p>O direito aparece a cada 5 anos de serviço, e o uso deve começar até o fim dos 5 anos seguintes. Se deixar passar, perde.</p>
+    </div>
+    <div class="rule">
+      <h3>Sem substituto</h3>
+      <p>Não haverá professor ou técnico contratado para cobrir você. Por isso a chefia e o grupo precisam combinar a compensação antes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calculadora">
+  <h2>Quantas horas preciso?</h2>
+  <p class="sub">A regra é 30 horas de estudo a cada 7 dias corridos. Mexa no controle e veja o mínimo para a sua licença.</p>
+  <div class="calc">
+    <label for="dias-lic">Dias de licença: <span id="dl-val">90</span></label>
+    <input type="range" id="dias-lic" min="15" max="90" value="90" step="1">
+    <div class="out">
+      <div class="box"><b id="h-total">386 h</b><span>carga horária total mínima da ação</span></div>
+      <div class="box"><b id="h-dia">4,3 h</b><span>por dia, contando fins de semana</span></div>
+      <div class="box"><b id="h-sem">12,9</b><span>semanas de licença</span></div>
+    </div>
+    <p class="note">Fórmula do edital: carga horária total ÷ dias da licença × 7 deve ser maior ou igual a 30. O menor período possível é 15 dias. Resultado arredondado para cima.</p>
+  </div>
+  <div class="analogy"><strong>Exemplo:</strong> um curso de 200 h só cobre cerca de 46 dias de licença (200 × 7 ÷ 30 ≈ 46,7). Se você pedir 90 dias com esse curso, a conta não fecha.</div>
+</section>
+
+<section id="passos">
+  <h2>Passo a passo</h2>
+  <p class="sub">Dividido em duas fases: primeiro entrar na lista, depois pedir a licença de verdade.</p>
+
+  <div class="phase">Fase 1: Inscrição (até 13/11)</div>
+  <ol class="steps">
+    <li><b>Converse com sua chefia</b><span>O edital recomenda falar antes de se inscrever. Ela vai precisar apoiar o pedido depois.</span></li>
+    <li><b>Entre no SUAP</b><span>Gestão de Pessoas &gt; Licença Capacitação &gt; Editais.</span></li>
+    <li><b>Preencha o formulário</b><span>Informe datas de início e fim, a ação de capacitação e a necessidade do PDP 2027.</span></li>
+    <li><b>Clique em enviar</b><span>Só vale se você finalizar a submissão. Rascunho não conta. Depois do prazo, as datas não podem mudar.</span></li>
+  </ol>
+
+  <div class="phase">Fase 2: Depois do resultado final (20/11)</div>
+  <ol class="steps">
+    <li><b>Abra o processo no SUAP</b><span>Via requerimento, com os documentos da lista abaixo. Sugestão: abrir pelo menos 30 dias antes do início.</span></li>
+    <li><b>Envie para a chefia imediata</b><span>Depois o processo segue para o setor de gestão de pessoas do seu campus.</span></li>
+    <li><b>Aguarde a portaria</b><span>Decisão em até 30 dias após todos os documentos. Você só pode sair depois de publicada a portaria.</span></li>
+    <li><b>Estude e comprove</b><span>Ao voltar, entregue certificado, relatório e cópia do trabalho final (se for o caso).</span></li>
+  </ol>
+</section>
+
+<section id="documentos">
+  <h2>Checklist de documentos</h2>
+  <p class="sub">Marque conforme for reunindo. A marcação fica só nesta tela.</p>
+  <div class="pcount" id="pcount">0 de 6 prontos</div>
+  <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
+  <ul class="check" id="check">
+    <li><label><input type="checkbox"><span>Cópia do pedido feito no edital<small>SUAP &gt; Licença Capacitação &gt; Editais &gt; Meus Pedidos &gt; Baixar pedido</small></span></label></li>
+    <li><label><input type="checkbox"><span>Currículo atualizado<small>Extraído do SOUGOV.BR</small></span></label></li>
+    <li><label><input type="checkbox"><span>Página do PDP 2027 com a necessidade destacada<small>Marque a necessidade que a sua capacitação atende</small></span></label></li>
+    <li><label><input type="checkbox"><span>Termo de compromisso assinado<small>Anexo III do edital. Você promete entregar a comprovação em até 30 dias após voltar.</small></span></label></li>
+    <li><label><input type="checkbox"><span>Ata do grupo (só para docentes)<small>Aprovando as condições, como distribuição de carga horária e plano de compensação</small></span></label></li>
+    <li><label><input type="checkbox"><span>Manifestação da chefia imediata<small>Justificativa de que há interesse da administração, de que o afastamento cabe no planejamento da unidade e de que o curso é útil ao seu trabalho</small></span></label></li>
+  </ul>
+
+  <details>
+    <summary>Só se for o seu caso</summary>
+    <ul>
+      <li>Licença maior que 30 dias seguidos e você tem cargo ou função: pedido de exoneração ou dispensa (não vale para Função de Apoio à Gestão).</li>
+      <li>Curso junto com prática em outro órgão: Acordo de Cooperação Técnica e Plano de Trabalho.</li>
+      <li>Curso junto com trabalho voluntário: declaração da instituição com natureza, atividades, programação, carga horária e local.</li>
+      <li>Servidor em exercício em órgão externo: declaração de autorização desse órgão.</li>
+    </ul>
+  </details>
+</section>
+
+<section id="cuidados">
+  <h2>Cuidados importantes</h2>
+  <p class="sub">Erros comuns que podem custar caro.</p>
+  <div class="alerts">
+    <div class="alert"><b>Aprovado não é concedido</b><span>O resultado só confirma que há vaga dentro dos 5%. A licença só vale depois da portaria assinada pelo Reitor ou pelo Diretor-Geral.</span></div>
+    <div class="alert"><b>Não saia antes da portaria</b><span>Se atrasar, a licença começa na data da emissão do ato, desde que ainda dentro do período aprovado.</span></div>
+    <div class="alert"><b>Datas fechadas</b><span>Depois que as inscrições encerram, você não pode mudar início e fim. Depois da portaria, não pode trocar a ação de capacitação.</span></div>
+    <div class="alert"><b>Início e fim devem bater</b><span>A capacitação precisa começar no primeiro dia e terminar no último dia da licença. O certificado com datas diferentes da portaria pode gerar devolução do valor recebido.</span></div>
+    <div class="alert"><b>Desistir ou não concluir</b><span>Quem abandona a ação ou não entrega a comprovação precisa ressarcir os gastos do afastamento, inclusive a remuneração. Se terminar antes, deve voltar logo ao trabalho.</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Guia feito a partir do Edital nº 61/2026 – DIDEPE/DIGPE/RE/IFRN, de 27/10/2026. É um resumo para facilitar a leitura. Em caso de dúvida, vale o texto oficial do edital e das Instruções Normativas nº 10 e nº 11/2023.
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Prazo
+  var ini = new Date(2026,9,28,7,0,0);
+  var fim = new Date(2026,10,13,23,59,0);
+  var now = new Date();
+  var n = document.getElementById('dias'), t = document.getElementById('dias-txt');
+  function dias(a,b){return Math.ceil((b-a)/86400000);}
+  if(now < ini){
+    n.textContent = 'Em breve';
+    n.style.fontSize = '30px';
+    t.textContent = 'As inscrições abrem em 28/10 às 7h';
+  } else if(now <= fim){
+    var d = dias(now,fim);
+    n.textContent = d;
+    t.textContent = d === 1 ? 'dia para encerrar as inscrições' : 'dias para encerrar as inscrições';
+  } else {
+    n.textContent = 'Encerrado';
+    n.style.fontSize = '30px';
+    t.textContent = 'O prazo de inscrição já passou';
+  }
+
+  // Calculadora
+  var r = document.getElementById('dias-lic');
+  function fmt(x,d){return x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});}
+  function calc(){
+    var d = +r.value;
+    document.getElementById('dl-val').textContent = d;
+    document.getElementById('h-total').textContent = Math.ceil(30*d/7) + ' h';
+    document.getElementById('h-dia').textContent = fmt(30/7,1) + ' h';
+    document.getElementById('h-sem').textContent = fmt(d/7,1);
+  }
+  r.addEventListener('input',calc); calc();
+
+  // Checklist
+  var boxes = document.querySelectorAll('#check input');
+  function prog(){
+    var c = 0; boxes.forEach(function(b){ if(b.checked) c++; });
+    document.getElementById('pcount').textContent = c + ' de ' + boxes.length + ' prontos';
+    document.getElementById('pbar').style.width = (100*c/boxes.length) + '%';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',prog); });
+  prog();
+})();
+</script>
+</body>
+</html>
