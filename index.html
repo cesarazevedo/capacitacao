@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guia rápido: Licença para Capacitação IFRN 2027.1</title>
+<meta name="description" content="Prazos, regras, calculadora e passo a passo da Licença para Capacitação do IFRN 2027.1 (Edital nº 61/2026). Inscrições até 13/11 no SUAP.">
+<meta name="theme-color" content="#0E4A3B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Licença para Capacitação IFRN 2027.1: guia rápido">
+<meta property="og:description" content="Prazos, regras, calculadora e passo a passo. Inscrições até 13/11 no SUAP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -156,6 +162,47 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 .alert{display:flex;gap:14px;align-items:flex-start}
 .alert .ic{font-size:28px;line-height:1.1;flex:none}
 .rule h3 .ic{margin-right:6px}
+
+/* botões */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{font:600 16px var(--body);padding:11px 18px;border-radius:99px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:rgba(127,127,127,.14)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:#2A1E00}
+.btn.primary:hover{filter:brightness(1.06);background:var(--amber)}
+/* linha do tempo dinâmica */
+.tl li.done .d,.tl li.done .w{opacity:.55}
+.tl li.done::before{background:var(--pine);border-color:var(--pine)}
+.tl li.now::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 5px var(--amber-soft)}
+.badge{display:inline-block;margin-left:8px;font-family:var(--body);font-size:12px;font-weight:700;background:var(--amber);color:#2A1E00;border-radius:99px;padding:2px 9px;vertical-align:3px}
+.barwrap{position:relative;padding-top:22px}
+.hoje{position:absolute;top:0;transform:translateX(-50%);font-size:12px;font-weight:700;white-space:nowrap}
+/* quiz */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 16px 14px;margin:0 0 12px;min-width:0}
+.q legend{font-weight:700;padding:0;float:left;width:100%}
+.q legend+label{clear:left}
+.q label{display:inline-flex;align-items:center;gap:6px;margin:8px 16px 0 0;cursor:pointer}
+.q input{width:20px;height:20px;accent-color:var(--pine)}
+.res{display:none;border-radius:16px;padding:16px 18px;font-size:17px}
+.res.show{display:block}
+.res b{font-family:var(--head);font-size:21px;display:block;margin-bottom:6px}
+.res ul{margin:8px 0 0;padding-left:20px}
+.res li{margin-bottom:6px}
+.res.ok{background:var(--mint);border-left:6px solid var(--pine)}
+.res.mid{background:var(--amber-soft);border-left:6px solid var(--amber)}
+.res.no{background:var(--alert-soft);border-left:6px solid var(--alert)}
+/* calculadora de datas */
+.when{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+.when label{font-weight:700;display:block;margin-bottom:8px}
+.when small{font-weight:400;color:var(--muted)}
+.when input{font:inherit;padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+.whenout{margin-top:12px;border-radius:12px;padding:12px 14px;background:var(--mint);font-size:16.5px}
+.whenout.bad{background:var(--alert-soft)}
+@media print{
+  nav,.actions,.noprint,.calc input,.when{display:none!important}
+  *{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  body{font-size:14px}
+  section{break-inside:avoid-page}
+}
 </style>
 </head>
 <body>
@@ -164,6 +211,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <div class="wrap">
     <a href="#jornada">Jornada</a>
     <a href="#resumo">Resumo</a>
+    <a href="#posso">Posso pedir?</a>
     <a href="#datas">Datas</a>
     <a href="#regras">Regras</a>
     <a href="#calculadora">Calculadora</a>
@@ -181,6 +229,11 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     <div class="deadline" role="status">
       <div class="big" id="dias">—</div>
       <div class="txt"><span id="dias-txt">Carregando prazo…</span><small>Inscrições: 28/10 às 7h até 13/11/2026 às 23h59, só pelo SUAP</small></div>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="https://suap.ifrn.edu.br/" target="_blank" rel="noopener">🔑 Abrir o SUAP</a>
+      <button class="btn" type="button" id="btn-ics">📅 Salvar prazos no calendário</button>
+      <a class="btn" id="btn-wa" href="https://wa.me/" target="_blank" rel="noopener">💬 Enviar no WhatsApp</a>
     </div>
   </div>
 </header>
@@ -220,30 +273,38 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <div class="analogy"><strong>Analogia:</strong> pense em um ônibus com poucos lugares. O edital só decide quem entra na lista (os 5%). Depois, o chefe e o diretor ainda precisam “assinar a passagem”. Estar na lista não garante a viagem.</div>
 </section>
 
+<section id="posso">
+  <h2>Eu posso pedir?</h2>
+  <p class="sub">Responda 4 perguntas rápidas. A página mostra se está tudo certo ou o que falta, como um semáforo.</p>
+  <div id="quiz"></div>
+  <div class="res" id="qres" role="status" aria-live="polite"></div>
+</section>
+
 <section id="datas">
   <h2>Datas importantes</h2>
   <p class="sub">Anote tudo. Os prazos de recurso e desistência são curtos (só até as 16h).</p>
   <div class="fig">
     <h3>As 4 semanas decisivas</h3>
     <p>De 28/10 a 20/11, cada pedacinho da barra é um dia.</p>
+    <div class="barwrap"><div class="hoje" id="hoje" hidden>📍 hoje</div>
     <div class="bar" role="img" aria-label="Inscrições de 28/10 a 13/11, fim de semana, resultado e recursos de 16 a 18/11, desistência e resultado final de 19 a 20/11">
       <div style="flex:17;--c:var(--pine)">Inscrição</div>
       <div class="gap" style="flex:2"></div>
       <div class="amb" style="flex:3;--c:var(--amber)"></div>
       <div style="flex:2;--c:var(--alert)"></div>
-    </div>
+    </div></div>
     <div class="dates"><span>28/10</span><span>13/11</span><span>16/11</span><span>20/11</span></div>
     <div class="legend"><span style="--c:var(--pine)">Inscrições no SUAP</span><span style="--c:var(--amber)">Resultado parcial e recurso</span><span style="--c:var(--alert)">Desistência e resultado final</span></div>
   </div>
   <ol class="tl">
-    <li><span class="d">27/10</span><span class="w">Edital publicado</span></li>
-    <li class="key"><span class="d">28/10 (7h) a 13/11 (23h59)</span><span class="w">Inscrições no SUAP</span></li>
-    <li><span class="d">16/11</span><span class="w">Resultado parcial</span></li>
-    <li><span class="d">17/11, das 7h às 16h</span><span class="w">Recurso contra o resultado parcial</span></li>
-    <li><span class="d">Até 18/11</span><span class="w">Resultado dos recursos</span></li>
-    <li><span class="d">19/11, das 7h às 16h</span><span class="w">Prazo para desistir (se foi aprovado)</span></li>
-    <li class="key"><span class="d">Até 20/11</span><span class="w">Resultado final, enviado por e-mail institucional</span></li>
-    <li><span class="d">01/01 a 30/06/2027</span><span class="w">Período em que a licença pode ser usada</span></li>
+    <li data-fim="2026-10-27T23:59"><span class="d">27/10</span><span class="w">Edital publicado</span></li>
+    <li class="key" data-ini="2026-10-28T07:00" data-fim="2026-11-13T23:59"><span class="d">28/10 (7h) a 13/11 (23h59)</span><span class="w">Inscrições no SUAP</span></li>
+    <li data-fim="2026-11-16T23:59"><span class="d">16/11</span><span class="w">Resultado parcial</span></li>
+    <li data-ini="2026-11-17T07:00" data-fim="2026-11-17T16:00"><span class="d">17/11, das 7h às 16h</span><span class="w">Recurso contra o resultado parcial</span></li>
+    <li data-fim="2026-11-18T23:59"><span class="d">Até 18/11</span><span class="w">Resultado dos recursos</span></li>
+    <li data-ini="2026-11-19T07:00" data-fim="2026-11-19T16:00"><span class="d">19/11, das 7h às 16h</span><span class="w">Prazo para desistir (se foi aprovado)</span></li>
+    <li class="key" data-fim="2026-11-20T23:59"><span class="d">Até 20/11</span><span class="w">Resultado final, enviado por e-mail institucional</span></li>
+    <li data-ini="2027-01-01T00:00" data-fim="2027-06-30T23:59"><span class="d">01/01 a 30/06/2027</span><span class="w">Período em que a licença pode ser usada</span></li>
   </ol>
 </section>
 
@@ -300,6 +361,11 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     </div>
     <div class="weeks" id="weeks" aria-hidden="true"></div>
     <p class="cap">Cada quadradinho é 1 semana de licença, com 30 h de estudo.</p>
+    <div class="when">
+      <label for="ini">Quando quer começar? <small>(entre 01/01 e 30/06/2027)</small></label>
+      <input type="date" id="ini" min="2027-01-01" max="2027-06-30">
+      <div class="whenout" id="whenout" aria-live="polite">Escolha uma data para ver quando a licença termina.</div>
+    </div>
     <div class="warn" id="warn"><b>Mais de 30 dias seguidos.</b> Quem tem cargo de comissão ou função de confiança precisa pedir exoneração ou dispensa.</div>
     <p class="note">Fórmula do edital: carga horária total ÷ dias da licença × 7 deve ser maior ou igual a 30. O menor período possível é 15 dias. Resultado arredondado para cima.</p>
   </div>
@@ -313,7 +379,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <div class="phase">Fase 1: Inscrição (até 13/11)</div>
   <ol class="steps">
     <li><b>Converse com sua chefia</b><span>O edital recomenda falar antes de se inscrever. Ela vai precisar apoiar o pedido depois.</span></li>
-    <li><b>Entre no SUAP</b><span>Gestão de Pessoas &gt; Licença Capacitação &gt; Editais.</span></li>
+    <li><b>Entre no SUAP</b><span>Gestão de Pessoas &gt; Licença Capacitação &gt; Editais. <a href="https://suap.ifrn.edu.br/" target="_blank" rel="noopener"><b style="font-size:inherit">Abrir o SUAP</b></a></span></li>
     <li><b>Preencha o formulário</b><span>Informe datas de início e fim, a ação de capacitação e a necessidade do PDP 2027.</span></li>
     <li><b>Clique em enviar</b><span>Só vale se você finalizar a submissão. Rascunho não conta. Depois do prazo, as datas não podem mudar.</span></li>
   </ol>
@@ -368,43 +434,64 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 
 <footer>
   <div class="wrap">
+    <p class="noprint"><button class="btn" type="button" onclick="window.print()">🖨️ Imprimir ou salvar em PDF</button></p>
     Guia feito a partir do Edital nº 61/2026 – DIDEPE/DIGPE/RE/IFRN, de 27/10/2026. É um resumo para facilitar a leitura. Em caso de dúvida, vale o texto oficial do edital e das Instruções Normativas nº 10 e nº 11/2023.
   </div>
 </footer>
 
 <script>
 (function(){
-  // Prazo
-  var ini = new Date(2026,9,28,7,0,0);
-  var fim = new Date(2026,10,13,23,59,0);
-  var now = new Date();
-  var n = document.getElementById('dias'), t = document.getElementById('dias-txt');
   function dias(a,b){return Math.ceil((b-a)/86400000);}
-  if(now < ini){
-    n.textContent = 'Em breve';
-    n.style.fontSize = '30px';
-    t.textContent = 'As inscrições abrem em 28/10 às 7h';
-  } else if(now <= fim){
-    var d = dias(now,fim);
-    n.textContent = d;
-    t.textContent = d === 1 ? 'dia para encerrar as inscrições' : 'dias para encerrar as inscrições';
+  function dmy(d){return d.toLocaleDateString('pt-BR');}
+  var agora = new Date();
+
+  // Contagem no topo
+  var ini0 = new Date(2026,9,28,7,0,0);
+  var fim0 = new Date(2026,10,13,23,59,0);
+  var n = document.getElementById('dias'), t = document.getElementById('dias-txt');
+  if(agora < ini0){
+    var d0 = dias(agora,ini0);
+    n.textContent = d0;
+    t.textContent = d0 === 1 ? 'dia para as inscrições abrirem' : 'dias para as inscrições abrirem';
+  } else if(agora <= fim0){
+    var d1 = dias(agora,fim0);
+    n.textContent = d1;
+    t.textContent = d1 === 1 ? 'dia para encerrar as inscrições' : 'dias para encerrar as inscrições';
   } else {
     n.textContent = 'Encerrado';
     n.style.fontSize = '30px';
     t.textContent = 'O prazo de inscrição já passou';
   }
 
+  // Linha do tempo: marca o que já passou, o que está rolando e o próximo
+  var proximo = null;
+  document.querySelectorAll('.tl li').forEach(function(li){
+    var fim = new Date(li.dataset.fim);
+    var ini = new Date(li.dataset.ini || li.dataset.fim.slice(0,10)+'T00:00');
+    var badge = '';
+    if(agora > fim){ li.classList.add('done'); }
+    else if(agora >= ini){ li.classList.add('now'); badge = li.dataset.ini ? 'Agora' : 'Hoje'; }
+    else if(!proximo){ proximo = li; badge = 'Próximo'; }
+    if(badge){
+      var b = document.createElement('span');
+      b.className = 'badge'; b.textContent = badge;
+      li.querySelector('.d').appendChild(b);
+    }
+  });
+
+  // Marcador "hoje" na barra das 4 semanas
+  var b0 = new Date(2026,9,28), b1 = new Date(2026,10,21);
+  if(agora >= b0 && agora <= b1){
+    var h = document.getElementById('hoje');
+    h.style.left = Math.min(94,Math.max(6,100*(agora-b0)/(b1-b0))) + '%';
+    h.hidden = false;
+  }
+
   // Calculadora
   var r = document.getElementById('dias-lic');
-  function fmt(x,d){return x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});}
-  function calc(){
-    var d = +r.value;
-    document.getElementById('dl-val').textContent = d;
-    document.getElementById('h-total').textContent = Math.ceil(30*d/7) + ' h';
-    document.getElementById('h-dia').textContent = fmt(30/7,1) + ' h';
-    document.getElementById('h-sem').textContent = fmt(d/7,1);
-  }
   var weeks = document.getElementById('weeks'), warn = document.getElementById('warn');
+  var ini = document.getElementById('ini'), whenout = document.getElementById('whenout');
+  function fmt(x,d){return x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});}
   function draw(d){
     var full = Math.floor(d/7), rest = d/7 - full, html = '';
     for(var i=0;i<full;i++) html += '<i></i>';
@@ -412,24 +499,116 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     weeks.innerHTML = html;
     warn.className = d > 30 ? 'warn show' : 'warn';
   }
-  var oldCalc = calc;
-  calc = function(){ oldCalc(); draw(+r.value); };
-  r.addEventListener('input',calc); calc();
+  function quando(d){
+    if(!ini.value){ whenout.className = 'whenout'; whenout.textContent = 'Escolha uma data para ver quando a licença termina.'; return; }
+    var p = ini.value.split('-');
+    var a = new Date(+p[0],+p[1]-1,+p[2]);
+    var f = new Date(a); f.setDate(f.getDate()+d-1);
+    var abrir = new Date(a); abrir.setDate(abrir.getDate()-30);
+    var cabe = a >= new Date(2027,0,1) && f <= new Date(2027,5,30);
+    var hoje0 = new Date(agora.getFullYear(),agora.getMonth(),agora.getDate());
+    whenout.className = 'whenout' + (cabe ? '' : ' bad');
+    whenout.innerHTML = 'A licença termina em <b>'+dmy(f)+'</b>. ' +
+      (cabe ? '✅ Cabe no período do edital.' : '❌ Passa de 30/06/2027. Escolha um início mais cedo ou menos dias.') +
+      '<br>Abra o processo no SUAP até <b>'+dmy(abrir)+'</b> (30 dias antes)' +
+      (abrir < hoje0 ? ', ou seja, abra o quanto antes.' : '.');
+  }
+  function calc(){
+    var d = +r.value;
+    document.getElementById('dl-val').textContent = d;
+    document.getElementById('h-total').textContent = Math.ceil(30*d/7) + ' h';
+    document.getElementById('h-dia').textContent = fmt(30/7,1) + ' h';
+    document.getElementById('h-sem').textContent = fmt(d/7,1);
+    draw(d); quando(d);
+  }
+  r.addEventListener('input',calc); ini.addEventListener('input',calc); calc();
 
   // Bolinhas dos 5%
   var dots = document.getElementById('dots'), dh = '';
   for(var k=0;k<100;k++) dh += '<i'+(k<5?' class="on"':'')+'></i>';
   dots.innerHTML = dh;
 
-  // Checklist
+  // Quiz "Eu posso pedir?"
+  var perguntas = [
+    ['Tenho 5 anos ou mais de serviço?','Sem os 5 anos de serviço ainda não há direito à licença. Confira seu tempo no SOUGOV.BR ou com a gestão de pessoas.'],
+    ['Minha capacitação está ligada a uma necessidade do PDP 2027?','Procure no PDP 2027 uma necessidade que combine com o seu curso. Sem isso a licença não sai, mesmo passando no edital.'],
+    ['Já conversei com minha chefia (e com o grupo, se sou docente)?','Converse antes de se inscrever. Sem o apoio da chefia e um plano de compensação, o processo trava depois.'],
+    ['A carga horária do curso cobre os dias que quero pedir?','Use a <a href="#calculadora"><b>calculadora</b></a>: são 30 h de estudo a cada 7 dias.']
+  ];
+  var quiz = document.getElementById('quiz'), qh = '';
+  perguntas.forEach(function(q,i){
+    qh += '<fieldset class="q"><legend>'+(i+1)+'. '+q[0]+'</legend>' +
+      ['Sim','Não','Não sei'].map(function(o,j){
+        return '<label><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>';
+      }).join('') + '</fieldset>';
+  });
+  quiz.innerHTML = qh;
+  var qres = document.getElementById('qres');
+  quiz.addEventListener('change',function(){
+    var resp = perguntas.map(function(q,i){
+      var c = quiz.querySelector('input[name="q'+i+'"]:checked');
+      return c ? +c.value : -1;
+    });
+    if(resp.indexOf(-1) !== -1){ qres.className = 'res'; return; }
+    var faltas = [], nao = false;
+    resp.forEach(function(v,i){ if(v !== 0){ faltas.push(perguntas[i][1]); if(v === 1) nao = true; } });
+    if(!faltas.length){
+      qres.className = 'res show ok';
+      qres.innerHTML = '<b>🟢 Pode se inscrever!</b>Está tudo certo. Faça a inscrição no SUAP até 13/11 às 23h59.';
+    } else {
+      qres.className = 'res show ' + (nao ? 'no' : 'mid');
+      qres.innerHTML = '<b>' + (nao ? '🔴 Ainda falta algo' : '🟡 Quase lá: confirme estes pontos') + '</b>' +
+        '<ul>' + faltas.map(function(f){ return '<li>'+f+'</li>'; }).join('') + '</ul>';
+    }
+  });
+
+  // Checklist (lembra o que foi marcado neste aparelho)
   var boxes = document.querySelectorAll('#check input');
+  var KEY = 'cap2027-checklist';
+  try{
+    var salvo = JSON.parse(localStorage.getItem(KEY) || '[]');
+    boxes.forEach(function(b,i){ b.checked = !!salvo[i]; });
+  }catch(e){}
   function prog(){
     var c = 0; boxes.forEach(function(b){ if(b.checked) c++; });
     document.getElementById('pcount').textContent = c + ' de ' + boxes.length + ' prontos';
     document.getElementById('pbar').style.width = (100*c/boxes.length) + '%';
+    try{ localStorage.setItem(KEY, JSON.stringify([].map.call(boxes,function(b){return b.checked;}))); }catch(e){}
   }
   boxes.forEach(function(b){ b.addEventListener('change',prog); });
   prog();
+
+  // WhatsApp
+  var url = location.href.split('#')[0];
+  document.getElementById('btn-wa').href = 'https://wa.me/?text=' + encodeURIComponent('Guia rápido da Licença para Capacitação IFRN 2027.1 (inscrições até 13/11): ' + url);
+
+  // Calendário (.ics)
+  function z(d){ return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); }
+  var eventos = [
+    ['2026-10-28T07:00','2026-10-28T07:30','Inscrições abertas: Licença Capacitação IFRN','Abra o SUAP: Gestão de Pessoas > Licença Capacitação > Editais.'],
+    ['2026-11-13T22:00','2026-11-13T23:59','ÚLTIMO DIA para se inscrever (até 23h59)','Finalize e envie o pedido no SUAP. Rascunho não vale.'],
+    ['2026-11-16T09:00','2026-11-16T09:30','Resultado parcial: Licença Capacitação','Confira o resultado parcial.'],
+    ['2026-11-17T07:00','2026-11-17T16:00','Prazo de recurso (até 16h)','Recurso contra o resultado parcial.'],
+    ['2026-11-19T07:00','2026-11-19T16:00','Prazo para desistir (até 16h)','Só para quem foi aprovado e quer desistir.'],
+    ['2026-11-20T09:00','2026-11-20T09:30','Resultado final: Licença Capacitação','Enviado por e-mail institucional.']
+  ];
+  document.getElementById('btn-ics').addEventListener('click',function(){
+    var L = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Guia Licenca Capacitacao IFRN//PT-BR','CALSCALE:GREGORIAN'];
+    eventos.forEach(function(e,i){
+      L.push('BEGIN:VEVENT','UID:cap2027-'+i+'@guia-licenca','DTSTAMP:'+z(new Date()),
+        'DTSTART:'+z(new Date(e[0]+':00-03:00')),'DTEND:'+z(new Date(e[1]+':00-03:00')),
+        'SUMMARY:'+e[2],'DESCRIPTION:'+e[3],
+        'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Lembrete','TRIGGER:-P1D','END:VALARM','END:VEVENT');
+    });
+    L.push('END:VCALENDAR');
+    var blob = new Blob([L.join('\r\n')],{type:'text/calendar;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = 'prazos-licenca-capacitacao.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  // Ao imprimir, abre as caixinhas fechadas
+  window.addEventListener('beforeprint',function(){ document.querySelectorAll('details').forEach(function(d){ d.open = true; }); });
 })();
 </script>
 </body>
