@@ -23,14 +23,8 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
-    --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
-    --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
-  }
-}
 :root[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#0C1713; --surface:#14241E; --ink:#E8F2ED; --muted:#9DB3A9;
   --pine:#7FD1B0; --pine-ink:#0C1713; --mint:#1B3329; --amber:#F2B33D; --amber-soft:#33290F;
   --alert:#F08A6C; --alert-soft:#38201A; --line:#274237;
@@ -45,6 +39,7 @@ a{color:inherit}
 /* nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 20px}
+.theme{margin-left:auto;flex:none;white-space:nowrap;font:600 14px var(--body);padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 nav a{white-space:nowrap;text-decoration:none;font-weight:600;font-size:15px;padding:6px 12px;border-radius:99px;color:var(--muted)}
 nav a:hover,nav a:focus-visible{background:var(--mint);color:var(--ink);outline:none}
 
@@ -204,6 +199,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   section{break-inside:avoid-page}
 }
 </style>
+<script>try{if(localStorage.getItem("tema")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </head>
 <body>
 
@@ -218,6 +214,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     <a href="#passos">Passo a passo</a>
     <a href="#documentos">Documentos</a>
     <a href="#cuidados">Cuidados</a>
+    <button class="theme noprint" type="button" id="tema" aria-label="Alternar entre modo claro e escuro">🌙 Modo escuro</button>
   </div>
 </nav>
 
@@ -225,7 +222,7 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
   <div class="wrap">
     <span class="tag">Edital nº 61/2026 · IFRN</span>
     <h1>Licença para capacitação 2027.1</h1>
-    <p class="lead">Tudo que você precisa saber para pedir até 90 dias de afastamento remunerado para estudar, entre janeiro e junho de 2027.</p>
+    <p class="lead">Tudo que você precisa saber para pedir até 90 dias de licença para se dedicar a um curso, pesquisa ou trabalho acadêmico, entre janeiro e junho de 2027.</p>
     <div class="deadline" role="status">
       <div class="big" id="dias">—</div>
       <div class="txt"><span id="dias-txt">Carregando prazo…</span><small>Inscrições: 28/10 às 7h até 13/11/2026 às 23h59, só pelo SUAP</small></div>
@@ -255,22 +252,22 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
 
 <section id="resumo">
   <h2>Em resumo</h2>
-  <p class="sub">A licença é como uma “pausa para estudar” no trabalho: você continua recebendo, mas precisa mostrar que usou o tempo para aprender.</p>
+  <p class="sub">A licença é um tempo reservado para você se dedicar à capacitação. Em troca, é preciso comprovar o que foi estudado.</p>
   <div class="facts">
-    <div class="fact"><span class="ic-big">🏖️</span><b>90 dias</b><span>de afastamento, com salário</span></div>
+    <div class="fact"><span class="ic-big">🗓️</span><b>90 dias</b><span>no máximo, dedicados à capacitação</span></div>
     <div class="fact"><span class="ic-big">📅</span><b>5 anos</b><span>de serviço para ganhar cada direito</span></div>
     <div class="fact"><span class="ic-big">📖</span><b>30 h/semana</b><span>de estudo mínimo comprovado</span></div>
-    <div class="fact"><span class="ic-big">👥</span><b>5%</b><span>dos servidores podem sair ao mesmo tempo</span></div>
+    <div class="fact"><span class="ic-big">👥</span><b>5%</b><span>dos servidores podem estar afastados ao mesmo tempo</span></div>
   </div>
 
   <div class="fig">
     <h3>Os 5%, em desenho</h3>
     <p>Imagine 100 servidores. Só 5 podem estar de licença ao mesmo tempo.</p>
     <div class="dots" id="dots" role="img" aria-label="100 bolinhas, 5 destacadas: representam os 5% de servidores que podem sair ao mesmo tempo"></div>
-    <div class="legend"><span style="--c:var(--amber)">Podem sair (5)</span><span>Continuam trabalhando (95)</span></div>
+    <div class="legend"><span style="--c:var(--amber)">Podem se afastar (5)</span><span>Continuam trabalhando (95)</span></div>
   </div>
 
-  <div class="analogy"><strong>Analogia:</strong> pense em um ônibus com poucos lugares. O edital só decide quem entra na lista (os 5%). Depois, o chefe e o diretor ainda precisam “assinar a passagem”. Estar na lista não garante a viagem.</div>
+  <div class="analogy"><strong>Analogia:</strong> pense nas vagas de um curso concorrido. O edital só decide quem entra na lista (os 5%). Depois, a chefia e a direção ainda precisam autorizar. Estar na lista não garante a licença.</div>
 </section>
 
 <section id="posso">
@@ -425,8 +422,8 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     <div class="alert"><span class="ic">⚠️</span><div><b>Aprovado não é concedido</b><span>O resultado só confirma que há vaga dentro dos 5%. A licença só vale depois da portaria assinada pelo Reitor ou pelo Diretor-Geral.</span></div></div>
     <div class="alert"><span class="ic">🚫</span><div><b>Não saia antes da portaria</b><span>Se atrasar, a licença começa na data da emissão do ato, desde que ainda dentro do período aprovado.</span></div></div>
     <div class="alert"><span class="ic">🔒</span><div><b>Datas fechadas</b><span>Depois que as inscrições encerram, você não pode mudar início e fim. Depois da portaria, não pode trocar a ação de capacitação.</span></div></div>
-    <div class="alert"><span class="ic">🔁</span><div><b>Início e fim devem bater</b><span>A capacitação precisa começar no primeiro dia e terminar no último dia da licença. O certificado com datas diferentes da portaria pode gerar devolução do valor recebido.</span></div></div>
-    <div class="alert"><span class="ic">💸</span><div><b>Desistir ou não concluir</b><span>Quem abandona a ação ou não entrega a comprovação precisa ressarcir os gastos do afastamento, inclusive a remuneração. Se terminar antes, deve voltar logo ao trabalho.</span></div></div>
+    <div class="alert"><span class="ic">🔁</span><div><b>Início e fim devem bater</b><span>A capacitação precisa começar no primeiro dia e terminar no último dia da licença. O certificado com datas diferentes da portaria pode gerar ressarcimento ao órgão.</span></div></div>
+    <div class="alert"><span class="ic">📌</span><div><b>Desistir ou não concluir</b><span>Quem abandona a ação ou não entrega a comprovação precisa ressarcir o órgão pelos custos do afastamento. Se terminar antes, deve voltar logo ao trabalho.</span></div></div>
   </div>
 </section>
 
@@ -606,6 +603,17 @@ footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);colo
     a.href = URL.createObjectURL(blob); a.download = 'prazos-licenca-capacitacao.ics';
     document.body.appendChild(a); a.click(); a.remove();
   });
+
+  // Modo claro (padrão) e escuro (se a pessoa escolher)
+  var tema = document.getElementById('tema'), raiz = document.documentElement;
+  function rotulo(){ tema.textContent = raiz.getAttribute('data-theme') === 'dark' ? '☀️ Modo claro' : '🌙 Modo escuro'; }
+  tema.addEventListener('click',function(){
+    var escuro = raiz.getAttribute('data-theme') !== 'dark';
+    if(escuro) raiz.setAttribute('data-theme','dark'); else raiz.removeAttribute('data-theme');
+    try{ localStorage.setItem('tema', escuro ? 'dark' : 'light'); }catch(e){}
+    rotulo();
+  });
+  rotulo();
 
   // Ao imprimir, abre as caixinhas fechadas
   window.addEventListener('beforeprint',function(){ document.querySelectorAll('details').forEach(function(d){ d.open = true; }); });
